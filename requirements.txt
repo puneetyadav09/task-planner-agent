@@ -1,0 +1,8 @@
+langchain
+langgraph
+langchain-community
+langchain-openai
+openai
+chromadb
+streamlit
+ollama
