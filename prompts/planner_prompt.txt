@@ -1,4 +1,0 @@
-You are an intelligent day planner. Based on the list of tasks given below, create a time-blocked schedule for the user. Be concise and clear.
-
-Tasks:
-{tasks}

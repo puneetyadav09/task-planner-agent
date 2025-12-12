@@ -2,17 +2,15 @@ import streamlit as st
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from graphs.langgraph_graph import create_planner_graph
 
-from langgraph_graph import create_planner_graph
+st.title("🧠 Task Planner with Memory - Gemini")
 
-planner_graph = create_planner_graph()
+user_input = st.text_area("Enter your day plan:")
 
-st.title("🧠 Task Planner with LangGraph")
-
-user_input = st.text_area("Enter your task description")
 if st.button("Generate Plan"):
-    if user_input.strip():
-        state = {"user_input": user_input}
-        result = planner_graph.invoke(state)
-        st.subheader("📅 Your Day Plan")
-        st.write(result["plan"])
+    planner_graph = create_planner_graph()
+    result = planner_graph.invoke({"input": user_input})
+    st.subheader("Tasks")
+    for task in result.get("tasks", []):
+        st.markdown(f"- {task}")

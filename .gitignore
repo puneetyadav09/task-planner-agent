@@ -93,3 +93,4 @@ ollama-models/
 
 # Misc
 *.sqlite3
+.venv
